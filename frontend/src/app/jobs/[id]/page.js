@@ -1,15 +1,3 @@
-export async function generateStaticParams() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs`);
-    const jobs = await res.json();
-    return jobs.map((job) => ({
-      id: job._id,
-    }));
-  } catch {
-    return [];
-  }
-}
-
 'use client';
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
